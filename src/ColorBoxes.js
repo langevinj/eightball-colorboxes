@@ -10,21 +10,23 @@ function ColorBoxes(props) {
     function handleClick(){
         const randIdx = getRandomIdx(props.numBoxes)
         const randColor = getRandomColor(props.colorList);
-        let boxes = document.getElementsByClassName("box");
-        for(let box of boxes){
-            if (box.firstChild.innerText = "changed!"){
-                box.firstChild.innerText = ""
-            }
-        }
-        boxes[randIdx].style.backgroundColor = randColor;
-        boxes[randIdx].firstChild.innerText = "changed!";
-        board[randIdx] = randColor;
-        setBoard(board);
+
+        setBoard(board => {
+            let copy = [...board];
+            copy[randIdx] = randColor;
+            return copy
+        });
+
+        let allBoxes = Array.from(document.getElementsByClassName("box"));
+        allBoxes.forEach(box => box.firstChild.innerText = "")
+        allBoxes[randIdx].firstChild.innerText = "changed!"
     }
+
+    const boxComponents = board.map((squareColor, i) => <div className="box" key={i} style={{ backgroundColor: squareColor }}><span className="Changed"></span></div>)
     
     return (
         <div className="ColorBoxes">
-            { board.map(square => <div className="box" key={square} style={{backgroundColor:square}}><span className="Changed"></span></div>) }
+            <section>{boxComponents}</section>
             <br></br>
             <button className="ColorBoxes-change" onClick={handleClick}>Change</button>
         </div>
