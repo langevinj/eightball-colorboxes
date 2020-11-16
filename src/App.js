@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Eightball from "./Eightball.js"
 import './App.css';
 
 function App() {
@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById("root"))
