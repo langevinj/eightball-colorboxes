@@ -18,3 +18,15 @@
     text-align: center;
     margin-top: 43%;
 }
+
+.resetBtn{
+    width: 100px;
+    height: 30px;
+    display: inline;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.Eightball{
+    text-align: center;
+}

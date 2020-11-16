@@ -12,12 +12,21 @@ const Eightball = (props) => {
         setMsg(props[rand].msg);
     };
 
+    function reset() {
+        setColor("black");
+        setMsg("Think of a Question");
+    }
+
     return (
-        <button className="btn" onClick={handleClick}>
-            <div className="dot" style={{backgroundColor:color}}>
-                <div className="msg">{msg}</div>
-            </div>
-        </button>
+        <div className="Eightball">
+            <button className="btn" onClick={handleClick}>
+                <div className="dot" style={{backgroundColor:color}}>
+                    <div className="msg">{msg}</div>
+                </div>
+            </button>
+            <br></br>
+            <button className="resetBtn" onClick={reset}>Reset</button>
+        </div>
     )
 }
 
