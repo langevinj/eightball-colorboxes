@@ -1,0 +1,20 @@
+.dot { 
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #bbb;
+    text-align: center;
+}
+
+.btn {
+    width: 300px;
+    height: 300px;
+}
+
+.msg{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 43%;
+}
