@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
 import { getRandomAnswer } from './helpers';
 import './Eightball.css';
+import Counter from './Counter';
 
 const Eightball = (props) => {
     const [color, setColor] = useState("black");
     const[msg, setMsg] = useState("Think of a Question");
+    const[colorCount, setColorCount] = useState({"red": 0, "green": 0, "goldenrod": 0})
 
     function handleClick() {
         const rand = getRandomAnswer()
         setColor(props[rand].color);
         setMsg(props[rand].msg);
+        incrementColorCount(props[rand].color);
     };
+
+    function incrementColorCount(color){
+        colorCount[color] = colorCount[color] + 1
+        setColorCount(colorCount);
+    }
 
     function reset() {
         setColor("black");
         setMsg("Think of a Question");
+        setColorCount({ "red": 0, "green": 0, "goldenrod": 0 })
     }
 
     return (
@@ -26,6 +35,7 @@ const Eightball = (props) => {
             </button>
             <br></br>
             <button className="resetBtn" onClick={reset}>Reset</button>
+            <Counter colorCount={colorCount} />
         </div>
     )
 }

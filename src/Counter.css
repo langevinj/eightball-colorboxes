@@ -1,0 +1,9 @@
+.Counter{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.greenCount, .yellowCount, .redCount {
+    margin: 5px;
+}
