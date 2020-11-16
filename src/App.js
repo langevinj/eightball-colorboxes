@@ -1,10 +1,12 @@
 import Eightball from "./Eightball.js"
+import ColorBoxes from "./ColorBoxes.js"
 import './App.css';
 
 function App() {
   return (
     <div>
       <Eightball />
+      <ColorBoxes />
     </div>
     
   );

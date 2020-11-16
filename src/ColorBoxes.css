@@ -1,0 +1,13 @@
+.box {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.ColorBoxes{
+    border: 1px dotted black;
+    text-align: center;
+    margin-top: 50px;
+}
