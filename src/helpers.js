@@ -1,18 +1,16 @@
-import ColorsList from './ColorsList';
-
 function getRandomAnswer() {
     return Math.floor(Math.random() * 20);
 }
 
-function getRandomColor() {
+function getRandomColor(ColorsList) {
     const randNum = Math.floor(Math.random() * ColorsList.length)
     return ColorsList[randNum]
 }
 
-function newBoxBoard(numBoxes) {
+function newBoxBoard(numBoxes, ColorsList) {
     let newBoard = []
     while(newBoard.length < numBoxes){
-        const randColor = getRandomColor();
+        const randColor = getRandomColor(ColorsList);
         if(!newBoard.includes(randColor)){
             newBoard.push(randColor);
         }
@@ -20,8 +18,8 @@ function newBoxBoard(numBoxes) {
     return newBoard;
 }
 
-function getRandomIdx(num) {
-    return Math.floor(Math.random() * 16);
+function getRandomIdx(numBoxes) {
+    return Math.floor(Math.random() * numBoxes);
 }
 
 export { getRandomAnswer, getRandomColor, newBoxBoard, getRandomIdx }

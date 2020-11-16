@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { getRandomColor, newBoxBoard, getRandomIdx } from './helpers.js'
 import './ColorBoxes.css'
+import ColorsList from './ColorsList.js';
 
-function ColorBoxes() {
-    let startingColors = newBoxBoard(16);
-    const[board, setBoard] = useState(startingColors);
+function ColorBoxes(props) {
+    let startingColorsBoard = newBoxBoard(props.numBoxes, props.colorList);
+    const[board, setBoard] = useState(startingColorsBoard);
 
     function handleClick(){
-        const randIdx = getRandomIdx(16)
-        const randColor = getRandomColor();
+        const randIdx = getRandomIdx(props.numBoxes)
+        const randColor = getRandomColor(props.colorList);
         let boxes = document.getElementsByClassName("box");
         boxes[randIdx].style.backgroundColor = randColor;
         board[randIdx] = randColor;
@@ -18,9 +19,12 @@ function ColorBoxes() {
     return (
         <div className="ColorBoxes">
             { board.map(square => <div className="box" key={square} style={{backgroundColor:square}}></div>) }
+            <br></br>
             <button className="ColorBoxes-change" onClick={handleClick}>Change</button>
         </div>
     )
 }
+
+ColorBoxes.defaultProps = {"numBoxes": 16, "colorList": ColorsList}
 
 export default ColorBoxes;
